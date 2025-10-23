@@ -11,12 +11,12 @@ let books = [
   { id: 2, title: "Atomic Habits", author: "James Clear" },
 ];
 
-// 1️⃣ GET - Get all books
+// GET - Get all books
 app.get('/books', (req, res) => {
   res.json(books);
 });
 
-// 2️⃣ POST - Add a new book
+// POST - Add a new book
 app.post('/books', (req, res) => {
   const newBook = {
     id: books.length + 1,
@@ -32,7 +32,7 @@ app.post('/books', (req, res) => {
   res.status(201).json({ message: "Book added successfully!", book: newBook });
 });
 
-// 3️⃣ PUT - Update a book by ID
+// PUT - Update a book by ID
 app.put('/books/:id', (req, res) => {
   const bookId = parseInt(req.params.id);
   const book = books.find(b => b.id === bookId);
@@ -47,7 +47,7 @@ app.put('/books/:id', (req, res) => {
   res.json({ message: "Book updated successfully!", book });
 });
 
-// 4️⃣ DELETE - Delete a book by ID
+// DELETE - Delete a book by ID
 app.delete('/books/:id', (req, res) => {
   const bookId = parseInt(req.params.id);
   const index = books.findIndex(b => b.id === bookId);
@@ -63,5 +63,5 @@ app.delete('/books/:id', (req, res) => {
 // Start the server
 const PORT = 3000;
 app.listen(PORT, () => {
-  console.log(`📚 Server is running on http://localhost:${PORT}`);
+  console.log(`Server is running on http://localhost:${PORT}`);
 });
